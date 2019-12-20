@@ -31,7 +31,7 @@ app.listen(3000, () => {
   console.log('app running on port: 3000');
 });
 
-app.get('/', (req, res) => {
+app.get('/*', cors(), (req, res) => {
   console.log('user', req.user);
   res.sendFile(path.resolve('public/index.html'));
 });

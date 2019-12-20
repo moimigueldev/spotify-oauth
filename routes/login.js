@@ -1,12 +1,14 @@
 const express = require('express');
 const passport = require('passport');
+const cors = require('cors');
 
 const route = express.Router();
 
 route.get(
   '/spotify/login',
+  cors(),
   passport.authenticate('spotify', {
-    scope: ['user-library-read']
+    scope: ['user-library-read', 'user-top-read']
   })
 );
 

@@ -15,11 +15,11 @@ passport.use(
     {
       clientID: keys.spotify['client-id'],
       clientSecret: keys.spotify['client-secret'],
-      callbackURL: '/auth/spotify/callback'
+      callbackURL: 'http://localhost:3000/auth/spotify/callback'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       keys.user = profile._json;
-      console.log(profile);
+      console.log(refreshToken);
       done(null, keys.user);
     }
   )
